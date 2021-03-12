@@ -1,20 +1,58 @@
-﻿// Task_3.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
+﻿#include <iostream>
+#define N 100
 
-#include <iostream>
+using namespace std;
 
-int main()
-{
-    std::cout << "Hello World!\n";
+//Я тупой барашек и сделал из десятичной в двоичную...
+//[+]. (необязательно)2->10. Переведите число из двоичной системы в десятичную.
+
+int main() {
+	int decimalSystemNo = 0, binarySystemNo[N], i = 0;
+
+	cout << "Enter a decimal number: ";
+	cin >> decimalSystemNo;
+
+	while (decimalSystemNo != 0) {
+		binarySystemNo[i] = abs(decimalSystemNo % 2);
+
+		if (abs(decimalSystemNo) == 1) {
+			break;
+		}
+
+		decimalSystemNo = decimalSystemNo / 2;
+		i++;
+	}
+
+	cout << "A number in binary: ";
+
+	if (decimalSystemNo < 0) {
+		cout << "-";
+	}
+	else {}
+
+	for (i; i >= 0; i--) {
+		cout << binarySystemNo[i];
+	}
+
+	cout << ";" << endl;
+
+	
+
+	int decimalSystem = 0, binarySystem = 0, degree = 0;
+
+	cout << "Enter a binary number: ";
+	cin >> binarySystem;
+
+	while (binarySystem != 0)
+	{
+		decimalSystem += ((binarySystem % 10) * pow(2, degree));
+
+		binarySystem = binarySystem / 10;
+
+		degree++;
+	}
+
+	cout << "A number in decimal: " << decimalSystem << endl;
+
+	return 0;
 }
-
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
-
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
